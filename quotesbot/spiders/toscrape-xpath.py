@@ -13,6 +13,7 @@ class ToScrapeSpiderXPath(scrapy.Spider):
             yield {
                 'text': quote.xpath('./span[@class="text"]/text()').extract_first(),
                 'author': quote.xpath('.//small[@class="author"]/text()').extract_first(),
+                'authorlink': quote.xpath('./span[2]/a/@href').extract_first(),
                 'tags': quote.xpath('.//div[@class="tags"]/a[@class="tag"]/text()').extract()
             }
 
